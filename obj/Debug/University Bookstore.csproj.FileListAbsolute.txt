@@ -1,0 +1,15 @@
+E:\Visual Studio Community 2019\University Bookstore\bin\Debug\University Bookstore.exe.config
+E:\Visual Studio Community 2019\University Bookstore\bin\Debug\University Bookstore.exe
+E:\Visual Studio Community 2019\University Bookstore\bin\Debug\University Bookstore.pdb
+E:\Visual Studio Community 2019\University Bookstore\obj\Debug\University Bookstore.csproj.AssemblyReference.cache
+E:\Visual Studio Community 2019\University Bookstore\obj\Debug\University_Bookstore.Properties.Resources.resources
+E:\Visual Studio Community 2019\University Bookstore\obj\Debug\University Bookstore.csproj.GenerateResource.cache
+E:\Visual Studio Community 2019\University Bookstore\obj\Debug\University Bookstore.csproj.CoreCompileInputs.cache
+E:\Visual Studio Community 2019\University Bookstore\obj\Debug\University Bookstore.exe
+E:\Visual Studio Community 2019\University Bookstore\obj\Debug\University Bookstore.pdb
+E:\Visual Studio Community 2019\University Bookstore\obj\Debug\University_Bookstore.AdmLogin.resources
+E:\Visual Studio Community 2019\University Bookstore\obj\Debug\University_Bookstore.StdForm.resources
+E:\Visual Studio Community 2019\University Bookstore\obj\Debug\University_Bookstore.StdLogin.resources
+E:\Visual Studio Community 2019\University Bookstore\obj\Debug\University_Bookstore.AddBooks.resources
+E:\Visual Studio Community 2019\University Bookstore\obj\Debug\University_Bookstore.AddStd.resources
+E:\Visual Studio Community 2019\University Bookstore\obj\Debug\University_Bookstore.Dashboard.resources

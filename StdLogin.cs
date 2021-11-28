@@ -26,5 +26,18 @@ namespace University_Bookstore
         {
             Application.Exit();
         }
+
+        private void StdLogin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            AdmLogin admLogin = new AdmLogin();
+            admLogin.Tag = this;
+            admLogin.Show();
+            Hide();
+        }
     }
 }

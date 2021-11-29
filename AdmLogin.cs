@@ -90,5 +90,13 @@ namespace University_Bookstore
                 errorProvider2.Clear();
             }
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            StdLogin stdLogin = new StdLogin();
+            stdLogin.Tag = this;
+            stdLogin.Show();
+            Hide();
+        }
     }
 }

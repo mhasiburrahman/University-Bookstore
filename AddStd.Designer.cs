@@ -222,6 +222,7 @@ namespace University_Bookstore
             this.label3.Size = new System.Drawing.Size(145, 35);
             this.label3.TabIndex = 9;
             this.label3.Text = "Add books";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label8
             // 
@@ -259,6 +260,7 @@ namespace University_Bookstore
             this.label5.Size = new System.Drawing.Size(147, 35);
             this.label5.TabIndex = 11;
             this.label5.Text = "Dashboard";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 
@@ -304,6 +306,7 @@ namespace University_Bookstore
             this.label2.Size = new System.Drawing.Size(76, 23);
             this.label2.TabIndex = 8;
             this.label2.Text = "Logout";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // pictureBox5
             // 
@@ -315,6 +318,7 @@ namespace University_Bookstore
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 7;
             this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
             // 
             // pictureBox4
             // 
@@ -326,6 +330,7 @@ namespace University_Bookstore
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 6;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // pictureBox3
             // 
@@ -362,6 +367,7 @@ namespace University_Bookstore
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(246, 68);
             this.panel5.TabIndex = 14;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // panel4
             // 

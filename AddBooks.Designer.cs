@@ -44,6 +44,12 @@ namespace University_Bookstore
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Author = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label16 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -63,12 +69,6 @@ namespace University_Bookstore
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Author = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -129,6 +129,7 @@ namespace University_Bookstore
             this.label3.Size = new System.Drawing.Size(145, 35);
             this.label3.TabIndex = 9;
             this.label3.Text = "Add books";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label5
             // 
@@ -140,6 +141,7 @@ namespace University_Bookstore
             this.label5.Size = new System.Drawing.Size(147, 35);
             this.label5.TabIndex = 11;
             this.label5.Text = "Dashboard";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 
@@ -164,6 +166,7 @@ namespace University_Bookstore
             this.label2.Size = new System.Drawing.Size(76, 23);
             this.label2.TabIndex = 8;
             this.label2.Text = "Logout";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // pictureBox5
             // 
@@ -175,6 +178,7 @@ namespace University_Bookstore
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 7;
             this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
             // 
             // pictureBox4
             // 
@@ -186,6 +190,7 @@ namespace University_Bookstore
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 6;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // pictureBox3
             // 
@@ -197,6 +202,7 @@ namespace University_Bookstore
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 5;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // pictureBox1
             // 
@@ -266,6 +272,53 @@ namespace University_Bookstore
             this.dataGridView1.Size = new System.Drawing.Size(802, 312);
             this.dataGridView1.TabIndex = 27;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Code
+            // 
+            this.Code.HeaderText = "Code";
+            this.Code.MinimumWidth = 6;
+            this.Code.Name = "Code";
+            this.Code.Width = 125;
+            // 
+            // Title
+            // 
+            this.Title.HeaderText = "Title";
+            this.Title.MinimumWidth = 6;
+            this.Title.Name = "Title";
+            this.Title.ReadOnly = true;
+            this.Title.Width = 125;
+            // 
+            // Author
+            // 
+            this.Author.HeaderText = "Author";
+            this.Author.MinimumWidth = 6;
+            this.Author.Name = "Author";
+            this.Author.ReadOnly = true;
+            this.Author.Width = 125;
+            // 
+            // Category
+            // 
+            this.Category.HeaderText = "Category";
+            this.Category.MinimumWidth = 6;
+            this.Category.Name = "Category";
+            this.Category.ReadOnly = true;
+            this.Category.Width = 125;
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.MinimumWidth = 6;
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            this.Quantity.Width = 125;
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Price";
+            this.Price.MinimumWidth = 6;
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            this.Price.Width = 125;
             // 
             // label16
             // 
@@ -489,53 +542,6 @@ namespace University_Bookstore
             this.label6.TabIndex = 7;
             this.label6.Text = "Exit";
             this.label6.Click += new System.EventHandler(this.label6_Click);
-            // 
-            // Code
-            // 
-            this.Code.HeaderText = "Code";
-            this.Code.MinimumWidth = 6;
-            this.Code.Name = "Code";
-            this.Code.Width = 125;
-            // 
-            // Title
-            // 
-            this.Title.HeaderText = "Title";
-            this.Title.MinimumWidth = 6;
-            this.Title.Name = "Title";
-            this.Title.ReadOnly = true;
-            this.Title.Width = 125;
-            // 
-            // Author
-            // 
-            this.Author.HeaderText = "Author";
-            this.Author.MinimumWidth = 6;
-            this.Author.Name = "Author";
-            this.Author.ReadOnly = true;
-            this.Author.Width = 125;
-            // 
-            // Category
-            // 
-            this.Category.HeaderText = "Category";
-            this.Category.MinimumWidth = 6;
-            this.Category.Name = "Category";
-            this.Category.ReadOnly = true;
-            this.Category.Width = 125;
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.MinimumWidth = 6;
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
-            this.Quantity.Width = 125;
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Price";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            this.Price.Width = 125;
             // 
             // AddBooks
             // 

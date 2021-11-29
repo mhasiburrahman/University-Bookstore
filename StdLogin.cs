@@ -39,5 +39,18 @@ namespace University_Bookstore
             admLogin.Show();
             Hide();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            AdmLogin admLogin = new AdmLogin();
+            admLogin.Tag = this;
+            admLogin.Show();
+            Hide();
+        }
     }
 }

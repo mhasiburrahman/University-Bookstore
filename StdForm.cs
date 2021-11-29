@@ -24,12 +24,23 @@ namespace University_Bookstore
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-
+            StdLogin stdLogin = new StdLogin();
+            stdLogin.Tag = this;
+            stdLogin.Show();
+            Hide();
         }
 
         private void label11_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            StdLogin stdLogin = new StdLogin();
+            stdLogin.Tag = this;
+            stdLogin.Show();
+            Hide();
         }
     }
 }

@@ -33,11 +33,10 @@ namespace University_Bookstore
         private void button1_Click(object sender, EventArgs e)
         {
             {
-                SqlConnection Sqlcon = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\prott\Desktop\University-Bookstore\AdminDB\AdminloginDB.mdf;Integrated Security=True;Connect Timeout=30");
+                SqlConnection Sqlcon = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Mehadi Hasan Shojib\Desktop\University-Bookstore\AdminDB\AdminloginDB.mdf;Integrated Security=True;Connect Timeout=30");
                 string query = "select * from ADLOGIN_TBL where username = '" + textBox1.Text.Trim() + "'and pass = '" + textBox2.Text.Trim() + "'";
                 SqlDataAdapter sd = new SqlDataAdapter(query, Sqlcon);
                 DataTable dt = new DataTable();
-
                 sd.Fill(dt);
                 if (dt.Rows.Count == 1)
                 {

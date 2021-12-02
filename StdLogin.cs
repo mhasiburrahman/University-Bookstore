@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace University_Bookstore
 {
     public partial class StdLogin : Form
     {
+        /*string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\)+[a-zA-Z]{2,9})$";*/
         public StdLogin()
         {
             InitializeComponent();
@@ -42,6 +45,23 @@ namespace University_Bookstore
 
         private void button1_Click(object sender, EventArgs e)
         {
+            SqlConnection Sqlcon = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\KAKON\Desktop\University-Bookstore\AdminDB\AdminloginDB.mdf;Integrated Security=True;Connect Timeout=30");
+            string query = "select * from STDLOGIN_TBL where username = '" + textBox1.Text.Trim() + "'and pass = '" + textBox2.Text.Trim() + "'";
+            SqlDataAdapter std = new SqlDataAdapter(query, Sqlcon);
+            DataTable dlt = new DataTable();
+            std.Fill(dlt);
+            if (dlt.Rows.Count == 1)
+            {
+                StdForm sd = new StdForm();
+                this.Hide();
+                sd.Show();
+            }
+            else
+            {
+                MessageBox.Show("Invalid Email or Password!");
+            }
+
+
 
         }
 
@@ -51,6 +71,43 @@ namespace University_Bookstore
             admLogin.Tag = this;
             admLogin.Show();
             Hide();
+        }
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBox1.Text) == true)
+            {
+                textBox1.Focus();
+                errorProvider1.SetError(this.textBox1, " Username can't be empty ");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+
+            /*if (Regex.IsMatch(textBox1.Text, pattern) == false)
+            {
+                textBox1.Focus();
+                errorProvider3.SetError(this.textBox1, " Invalid Username ");
+            }
+            else
+            {
+                errorProvider3.Clear();
+            }*/
+        }
+
+        private void textBox2_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBox2.Text) == true)
+            {
+                textBox2.Focus();
+                errorProvider2.SetError(this.textBox2, " Password can't be empty ");
+            }
+            else
+            {
+                errorProvider2.Clear();
+            }
+
         }
     }
 }

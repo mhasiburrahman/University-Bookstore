@@ -260,6 +260,7 @@ namespace University_Bookstore
             this.dataGridView1.Size = new System.Drawing.Size(910, 220);
             this.dataGridView1.TabIndex = 27;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
             // label16
             // 

@@ -61,11 +61,6 @@ namespace University_Bookstore
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Department = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -102,6 +97,7 @@ namespace University_Bookstore
             this.button4.TabIndex = 25;
             this.button4.Text = "Reset";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -115,6 +111,7 @@ namespace University_Bookstore
             this.button3.TabIndex = 24;
             this.button3.Text = "Delete";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -128,6 +125,7 @@ namespace University_Bookstore
             this.button2.TabIndex = 23;
             this.button2.Text = "Add";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -141,6 +139,7 @@ namespace University_Bookstore
             this.button1.TabIndex = 22;
             this.button1.Text = "Edit";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label14
             // 
@@ -393,9 +392,9 @@ namespace University_Bookstore
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Controls.Add(this.textBox3);
             this.panel2.Controls.Add(this.textBox5);
-            this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Controls.Add(this.label16);
             this.panel2.Controls.Add(this.button4);
             this.panel2.Controls.Add(this.button3);
@@ -414,6 +413,7 @@ namespace University_Bookstore
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1177, 650);
             this.panel2.TabIndex = 3;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // textBox3
             // 
@@ -433,61 +433,16 @@ namespace University_Bookstore
             // 
             // dataGridView1
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Azure;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.No,
-            this.Username,
-            this.Password,
-            this.ID,
-            this.Department});
-            this.dataGridView1.Location = new System.Drawing.Point(282, 296);
+            this.dataGridView1.Location = new System.Drawing.Point(265, 320);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(673, 310);
-            this.dataGridView1.TabIndex = 27;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(724, 221);
+            this.dataGridView1.TabIndex = 30;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // No
-            // 
-            this.No.HeaderText = "No";
-            this.No.MinimumWidth = 6;
-            this.No.Name = "No";
-            this.No.ReadOnly = true;
-            this.No.Width = 125;
-            // 
-            // Username
-            // 
-            this.Username.HeaderText = "Username";
-            this.Username.MinimumWidth = 6;
-            this.Username.Name = "Username";
-            this.Username.ReadOnly = true;
-            this.Username.Width = 125;
-            // 
-            // Password
-            // 
-            this.Password.HeaderText = "Password";
-            this.Password.MinimumWidth = 6;
-            this.Password.Name = "Password";
-            this.Password.ReadOnly = true;
-            this.Password.Width = 125;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 125;
-            // 
-            // Department
-            // 
-            this.Department.HeaderText = "Department";
-            this.Department.MinimumWidth = 6;
-            this.Department.Name = "Department";
-            this.Department.ReadOnly = true;
-            this.Department.Width = 125;
             // 
             // AddStd
             // 
@@ -551,14 +506,9 @@ namespace University_Bookstore
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn No;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Username;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Password;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Department;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

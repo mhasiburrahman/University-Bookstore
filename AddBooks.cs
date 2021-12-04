@@ -17,7 +17,7 @@ namespace University_Bookstore
     public partial class AddBooks : Form
     {
         //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\KAKON\Desktop\University-Bookstore\AdminDB\AdminloginDB.mdf;Integrated Security=True;Connect Timeout=30");
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\MAHIM SARKAR\Desktop\University-Bookstore\AdminDB\AdminloginDB.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Mehadi Hasan Shojib\Desktop\University-Bookstore\AdminDB\AdminloginDB.mdf;Integrated Security=True;Connect Timeout=30");
         public int sl;
         public AddBooks()
         {
@@ -61,7 +61,7 @@ namespace University_Bookstore
             }
             else
             {
-                MessageBox.Show("Select Info", "Select?", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Select to Delete", "Select?", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -126,9 +126,9 @@ namespace University_Bookstore
         }
        private bool Isvalid()
         {
-            if (textBox1.Text == String.Empty)
+            if (textBox1.Text == String.Empty || textBox2.Text == String.Empty || comboBox1.Text == "Select Category" || textBox3.Text == String.Empty || textBox4.Text == String.Empty)
             {
-                MessageBox.Show("Cannot Leave Empty", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Fill all the information", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;
@@ -168,16 +168,8 @@ namespace University_Bookstore
             reset();
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            sl = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
-            textBox1.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-            textBox2.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-            comboBox1.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-            textBox4.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
-            textBox3.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
-
-        }
+       
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -202,13 +194,30 @@ namespace University_Bookstore
             }
             else
             {
-                MessageBox.Show("Select info", "Select?", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Select to updated", "Select?", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
+     
 
+  
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            sl = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+
+            textBox1.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            textBox2.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+            comboBox1.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+            textBox4.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+            textBox3.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
         }
+
+        private void AddBooks_Load(object sender, EventArgs e)
+        {
+            displayData();
+        }
+
+       
     }
 }

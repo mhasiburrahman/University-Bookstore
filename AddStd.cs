@@ -13,7 +13,7 @@ namespace University_Bookstore
 {
     public partial class AddStd : Form
     {
-        SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\MAHIM SARKAR\Desktop\University-Bookstore\AdminDB\AdminloginDB.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Mehadi Hasan Shojib\Desktop\University-Bookstore\AdminDB\AdminloginDB.mdf;Integrated Security=True;Connect Timeout=30");
         public int sl;
         public AddStd()
         {
@@ -186,7 +186,6 @@ namespace University_Bookstore
             sl = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
             textBox1.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             textBox2.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-
             textBox5.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
             textBox3.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
 
@@ -222,6 +221,5 @@ namespace University_Bookstore
                  
             }
         }
-
     }
 }

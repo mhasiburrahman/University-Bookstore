@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace University_Bookstore
 {
+   
     public partial class Dashboard : Form
     {
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Mehadi Hasan Shojib\Desktop\University-Bookstore\AdminDB\AdminloginDB.mdf;Integrated Security=True;Connect Timeout=30");
         public Dashboard()
         {
             InitializeComponent();
@@ -62,6 +65,20 @@ namespace University_Bookstore
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+            con.Open();
+            string q = "SELECT SUM(QUANTITY) FROM addBook";
+            SqlCommand cmd = new SqlCommand(q, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                label13.Text = dr.GetValue(0).ToString();
+            }
+            con.Close();
+
         }
     }
 }

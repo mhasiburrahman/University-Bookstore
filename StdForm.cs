@@ -42,5 +42,10 @@ namespace University_Bookstore
             stdLogin.Show();
             Hide();
         }
+
+        private void StdForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

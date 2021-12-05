@@ -13,7 +13,7 @@ namespace University_Bookstore
 {
     public partial class AddStd : Form
     {
-        SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Mehadi Hasan Shojib\Desktop\University-Bookstore\AdminDB\AdminloginDB.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\KAKON\Desktop\University-Bookstore\AdminDB\AdminloginDB.mdf;Integrated Security=True;Connect Timeout=30");
         public int sl;
         public AddStd()
         {
@@ -220,6 +220,11 @@ namespace University_Bookstore
                 MessageBox.Show("Please select a student to update","Select?", MessageBoxButtons.OK, MessageBoxIcon.Error);
                  
             }
+        }
+
+        private void AddStd_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

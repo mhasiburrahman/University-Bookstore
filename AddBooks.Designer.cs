@@ -401,22 +401,26 @@ namespace University_Bookstore
             this.comboBox1.Size = new System.Drawing.Size(206, 31);
             this.comboBox1.TabIndex = 16;
             this.comboBox1.Text = "Select Category";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(503, 53);
+            this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(243, 30);
+            this.textBox2.Size = new System.Drawing.Size(243, 22);
             this.textBox2.TabIndex = 15;
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(166, 52);
+            this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(234, 30);
+            this.textBox1.Size = new System.Drawing.Size(234, 22);
             this.textBox1.TabIndex = 14;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label12
             // 

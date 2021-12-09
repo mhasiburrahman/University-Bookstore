@@ -14,7 +14,8 @@ namespace University_Bookstore
     public partial class AddStd : Form
     {
         //SqlConnection Sqlcon = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\KAKON\Desktop\University-Bookstore\AdminDB\AdminloginDB.mdf;Integrated Security=True;Connect Timeout=30");
-        SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\prott\Desktop\University-Bookstore\AdminDB\AdminloginDB.mdf;Integrated Security=True;Connect Timeout=30");
+       // SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\prott\Desktop\University-Bookstore\AdminDB\AdminloginDB.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\MAHIM SARKAR\Desktop\University-Bookstore\AdminDB\AdminloginDB.mdf;Integrated Security=True;Connect Timeout=30");
         public int sl;
         public AddStd()
         {
@@ -94,7 +95,7 @@ namespace University_Bookstore
                 cmd.Parameters.AddWithValue("@username", textBox1.Text);
                 cmd.Parameters.AddWithValue("@pass", textBox2.Text);
                 cmd.Parameters.AddWithValue("@id", textBox5.Text);
-                cmd.Parameters.AddWithValue("@department", textBox3.Text);
+                cmd.Parameters.AddWithValue("@department", comboBox1.Text);
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
@@ -102,7 +103,7 @@ namespace University_Bookstore
                 textBox1.Text = "";
                 textBox2.Text = "";
                 textBox5.Text = "";
-                textBox3.Text = "";
+                comboBox1.Text = "";
                 MessageBox.Show("Insertion Successful", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 displayData();
                 ResetformControls();
@@ -114,6 +115,21 @@ namespace University_Bookstore
             if (textBox1.Text == string.Empty)
             {
                 MessageBox.Show("UserName is required", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (textBox2.Text == string.Empty)
+            {
+                MessageBox.Show("Password is required", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (textBox5.Text == string.Empty)
+            {
+                MessageBox.Show("ID is required", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (comboBox1.Text == string.Empty)
+            {
+                MessageBox.Show("Department is required", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;
@@ -149,7 +165,7 @@ namespace University_Bookstore
             textBox1.Clear();
             textBox2.Clear();
             textBox5.Clear();
-            textBox3.Clear();
+            comboBox1.Text = "Select Category";
 
             textBox1.Focus();
         }
@@ -170,7 +186,7 @@ namespace University_Bookstore
                 textBox1.Text = "";
                 textBox2.Text = "";
                 textBox5.Text = "";
-                textBox3.Text = "";
+                comboBox1.Text = "";
                 MessageBox.Show("Student is deleted from the system", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 displayData();
                 ResetformControls();
@@ -188,7 +204,7 @@ namespace University_Bookstore
             textBox1.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             textBox2.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
             textBox5.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-            textBox3.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+            comboBox1.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
 
         }
 
@@ -202,7 +218,7 @@ namespace University_Bookstore
                 cmd.Parameters.AddWithValue("@username", textBox1.Text);
                 cmd.Parameters.AddWithValue("@pass", textBox2.Text);
                 cmd.Parameters.AddWithValue("@id", textBox5.Text);
-                cmd.Parameters.AddWithValue("@department", textBox3.Text);
+                cmd.Parameters.AddWithValue("@department", comboBox1.Text);
                 cmd.Parameters.AddWithValue("@sl", this.sl);
 
                 conn.Open();
@@ -211,7 +227,7 @@ namespace University_Bookstore
                 textBox1.Text = "";
                 textBox2.Text = "";
                 textBox5.Text = "";
-                textBox3.Text = "";
+                comboBox1.Text = "";
                 MessageBox.Show("Updation Successful", "updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 displayData();
                 ResetformControls();
@@ -223,7 +239,31 @@ namespace University_Bookstore
             }
         }
 
+        private bool Isvalid()
+        {
+            if (textBox1.Text == String.Empty || textBox2.Text == String.Empty || comboBox1.Text == "Select Category" || textBox5.Text == String.Empty)
+            {
+                MessageBox.Show("Fill all the information", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
         private void AddStd_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+       /* private void comboBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }*/
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

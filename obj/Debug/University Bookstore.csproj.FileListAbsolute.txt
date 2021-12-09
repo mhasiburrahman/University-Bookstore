@@ -73,3 +73,18 @@ C:\Users\MAHIM SARKAR\Desktop\University-Bookstore\obj\Debug\University Bookstor
 C:\Users\MAHIM SARKAR\Desktop\University-Bookstore\obj\Debug\University Bookstore.csproj.CoreCompileInputs.cache
 C:\Users\MAHIM SARKAR\Desktop\University-Bookstore\obj\Debug\University Bookstore.exe
 C:\Users\MAHIM SARKAR\Desktop\University-Bookstore\obj\Debug\University Bookstore.pdb
+C:\Users\prott\Desktop\NEW FILE\University-Bookstore\bin\Debug\University Bookstore.exe.config
+C:\Users\prott\Desktop\NEW FILE\University-Bookstore\bin\Debug\University Bookstore.exe
+C:\Users\prott\Desktop\NEW FILE\University-Bookstore\bin\Debug\University Bookstore.pdb
+C:\Users\prott\Desktop\NEW FILE\University-Bookstore\obj\Debug\University Bookstore.csproj.AssemblyReference.cache
+C:\Users\prott\Desktop\NEW FILE\University-Bookstore\obj\Debug\University_Bookstore.AdmLogin.resources
+C:\Users\prott\Desktop\NEW FILE\University-Bookstore\obj\Debug\University_Bookstore.StdForm.resources
+C:\Users\prott\Desktop\NEW FILE\University-Bookstore\obj\Debug\University_Bookstore.StdLogin.resources
+C:\Users\prott\Desktop\NEW FILE\University-Bookstore\obj\Debug\University_Bookstore.AddBooks.resources
+C:\Users\prott\Desktop\NEW FILE\University-Bookstore\obj\Debug\University_Bookstore.AddStd.resources
+C:\Users\prott\Desktop\NEW FILE\University-Bookstore\obj\Debug\University_Bookstore.Dashboard.resources
+C:\Users\prott\Desktop\NEW FILE\University-Bookstore\obj\Debug\University_Bookstore.Properties.Resources.resources
+C:\Users\prott\Desktop\NEW FILE\University-Bookstore\obj\Debug\University Bookstore.csproj.GenerateResource.cache
+C:\Users\prott\Desktop\NEW FILE\University-Bookstore\obj\Debug\University Bookstore.csproj.CoreCompileInputs.cache
+C:\Users\prott\Desktop\NEW FILE\University-Bookstore\obj\Debug\University Bookstore.exe
+C:\Users\prott\Desktop\NEW FILE\University-Bookstore\obj\Debug\University Bookstore.pdb

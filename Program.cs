@@ -15,8 +15,8 @@ namespace University_Bookstore
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
         
-            //Application.Run(new AddStd());
-           Application.Run(new StdLogin());
+          //Application.Run(new AddStd());
+            Application.Run(new StdLogin());
         }
     }
 }

@@ -446,6 +446,8 @@ namespace University_Bookstore
             "IPE",
             "Architecture",
             "English",
+            "Physics",
+            "Mahematics",
             "Economics",
             "MMC",
             "Pharmacy",
@@ -455,9 +457,9 @@ namespace University_Bookstore
             "EMBA"});
             this.comboBox1.Location = new System.Drawing.Point(977, 79);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(155, 30);
+            this.comboBox1.Size = new System.Drawing.Size(183, 30);
             this.comboBox1.TabIndex = 31;
-            this.comboBox1.Text = "Select Category";
+            this.comboBox1.Text = "Select Department";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // dataGridView1

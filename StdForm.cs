@@ -15,11 +15,21 @@ namespace University_Bookstore
     public partial class StdForm : Form
     {
         public int sl;
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\prott\Desktop\University-Bookstore\AdminDB\AdminloginDB.mdf;Integrated Security=True;Connect Timeout=30");
+        public int p;
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Mehadi Hasan Shojib\Desktop\University-Bookstore\AdminDB\AdminloginDB.mdf;Integrated Security=True;Connect Timeout=30");
        // SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\MAHIM SARKAR\Desktop\University-Bookstore\AdminDB\AdminloginDB.mdf;Integrated Security=True;Connect Timeout=30");
         public StdForm()
         {
             InitializeComponent();
+            dataGridView1.ColumnCount = 3;
+            dataGridView1.Columns[0].Name = "BOOK-NAME";
+            dataGridView1.Columns[1].Name = "QUANTITY";
+            dataGridView1.Columns[2].Name = "PRICE";
+
+            dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
         }
         public void displayData()
         {
@@ -75,15 +85,29 @@ namespace University_Bookstore
         {
 
         }
-
+        private bool Isvalid()
+        {
+            if ( textBox2.Text == String.Empty ||  textBox3.Text == String.Empty || textBox4.Text == String.Empty)
+            {
+                MessageBox.Show("Select all the information", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
         private void button2_Click(object sender, EventArgs e)
         {
-
+            if (Isvalid())
+            {
+                dataGridView1.Rows.Add(textBox2.Text, textBox3.Text, textBox4.Text);
+                MessageBox.Show("Added to cart", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
         }
 
        // int sl = 0;
         public void reset()
         {
+           
             sl = 0;
             //textBox1.Clear();
             textBox2.Clear();
@@ -98,11 +122,29 @@ namespace University_Bookstore
         }
 
         int prodid, prodqty, prodprice, tottal, pos = 60;
-       
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                p = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+                int  rowIndex = dataGridView1.CurrentCell.RowIndex;
+                dataGridView1.Rows.RemoveAt(rowIndex);
+                
+            }
+            catch
+            {
+                MessageBox.Show("Cannot clear empty ", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
+          
+        }
+
         private void dataGridView4_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             sl = Convert.ToInt32(dataGridView4.SelectedRows[0].Cells[0].Value);
             textBox2.Text = dataGridView4.SelectedRows[0].Cells[1].Value.ToString();
+            textBox4.Text = dataGridView4.SelectedRows[0].Cells[5].Value.ToString();
         }
 
         string podname;

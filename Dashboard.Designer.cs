@@ -45,8 +45,6 @@ namespace University_Bookstore
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -238,8 +236,6 @@ namespace University_Bookstore
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.label13);
@@ -253,28 +249,6 @@ namespace University_Bookstore
             this.panel2.Size = new System.Drawing.Size(1177, 650);
             this.panel2.TabIndex = 5;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(463, 313);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(89, 34);
-            this.label11.TabIndex = 36;
-            this.label11.Text = "Stock";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(163, 313);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(244, 34);
-            this.label7.TabIndex = 35;
-            this.label7.Text = "Total Books Sold :";
             // 
             // label15
             // 
@@ -401,8 +375,6 @@ namespace University_Bookstore
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label13;

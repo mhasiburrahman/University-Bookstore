@@ -13,7 +13,9 @@ using System.Text.RegularExpressions;
 namespace University_Bookstore
 {
     public partial class StdLogin : Form
+
     {
+        private bool showpass = false;
         /*string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\)+[a-zA-Z]{2,9})$";*/
         public StdLogin()
         {
@@ -45,8 +47,8 @@ namespace University_Bookstore
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //SqlConnection Sqlcon = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\KAKON\Desktop\University-Bookstore\AdminDB\AdminloginDB.mdf;Integrated Security=True;Connect Timeout=30");
-            SqlConnection Sqlcon = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\prott\Desktop\University-Bookstore\AdminDB\AdminloginDB.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlConnection Sqlcon = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\KAKON\Desktop\University-Bookstore\AdminDB\AdminloginDB.mdf;Integrated Security=True;Connect Timeout=30");
+            //SqlConnection Sqlcon = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\prott\Desktop\University-Bookstore\AdminDB\AdminloginDB.mdf;Integrated Security=True;Connect Timeout=30");
             //SqlConnection Sqlcon = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\MAHIM SARKAR\Desktop\University-Bookstore\AdminDB\AdminloginDB.mdf;Integrated Security=True;Connect Timeout=30");
             string query = "select * from addSTUDENT where username = '" + textBox1.Text.Trim() + "'and pass = '" + textBox2.Text.Trim() + "'";
             SqlDataAdapter std = new SqlDataAdapter(query, Sqlcon);
@@ -108,6 +110,24 @@ namespace University_Bookstore
             else
             {
                 errorProvider2.Clear();
+            }
+
+        }
+
+        private void showpassBTN_Click(object sender, EventArgs e)
+        {
+            if (showpass == false)
+            {
+                textBox2.UseSystemPasswordChar = false;
+                showpass = true;
+                showpassBTN.Image = Properties.Resources.show;
+
+            }
+            else
+            {
+                textBox2.UseSystemPasswordChar = true;
+                showpass = false;
+                showpassBTN.Image = Properties.Resources.hidden;
             }
 
         }

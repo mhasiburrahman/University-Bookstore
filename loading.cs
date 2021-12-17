@@ -19,7 +19,7 @@ namespace University_Bookstore
         int startpos = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            startpos += 2;
+            startpos +=2;
             progressBar1.Value = startpos;
             label3.Text = startpos+"%";
             if(progressBar1.Value == 100)

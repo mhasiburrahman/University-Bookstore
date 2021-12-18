@@ -208,6 +208,7 @@ namespace University_Bookstore
             // 
             // dataGridView4
             // 
+            this.dataGridView4.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView4.Location = new System.Drawing.Point(9, 127);
             this.dataGridView4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

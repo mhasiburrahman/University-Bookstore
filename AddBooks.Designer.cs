@@ -63,6 +63,8 @@ namespace University_Bookstore
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -222,6 +224,8 @@ namespace University_Bookstore
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.textBox5);
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Controls.Add(this.label16);
             this.panel2.Controls.Add(this.button4);
@@ -251,6 +255,7 @@ namespace University_Bookstore
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(198, 298);
             this.dataGridView1.Name = "dataGridView1";
@@ -347,6 +352,7 @@ namespace University_Bookstore
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(89, 30);
             this.textBox4.TabIndex = 20;
+            this.textBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox4_KeyPress);
             // 
             // label14
             // 
@@ -377,6 +383,7 @@ namespace University_Bookstore
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(89, 30);
             this.textBox3.TabIndex = 17;
+            this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
             // 
             // comboBox1
             // 
@@ -492,6 +499,27 @@ namespace University_Bookstore
             this.label6.Text = "Exit";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
+            // textBox5
+            // 
+            this.textBox5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(916, 106);
+            this.textBox5.Multiline = true;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(234, 34);
+            this.textBox5.TabIndex = 28;
+            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(821, 111);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(78, 23);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "Search";
+            // 
             // AddBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -558,5 +586,7 @@ namespace University_Bookstore
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox5;
     }
 }

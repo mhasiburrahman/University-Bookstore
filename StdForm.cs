@@ -107,25 +107,50 @@ namespace University_Bookstore
         {
 
         }
+        private bool qCheck()
+        {
+
+          
+            if (int.Parse(textBox3.Text) < int.Parse(textBox5.Text) || int.Parse(textBox5.Text) == 0)
+            {
+
+
+                MessageBox.Show("Out of stock");
+                return false;
+            }
+            return true;
+        }
         private bool Isvalid()
         {
-            if ( textBox2.Text == String.Empty ||  textBox3.Text == String.Empty || textBox4.Text == String.Empty)
+            if ( textBox2.Text == String.Empty ||  textBox5.Text == String.Empty || textBox4.Text == String.Empty)
             {
                 MessageBox.Show("Select all the information", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;
         }
+        int mul;
+        int dif;
+
         private void button2_Click(object sender, EventArgs e)
         {
           string email = textBox1.Text;
         textBox1.Enabled = false;
 
-            if (Isvalid())
+            if (Isvalid() && qCheck())
             {
-                dataGridView1.Rows.Add(textBox2.Text, textBox3.Text, textBox4.Text);
+                mul = int.Parse(textBox5.Text) * int.Parse(textBox4.Text);
+                dataGridView1.Rows.Add(textBox2.Text, textBox5.Text, this.mul);
+               
                 MessageBox.Show("Added to cart", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 textBox1.Enabled = true;
+                int sum = 0;
+                for (int i = 0; i < dataGridView1.Rows.Count; ++i)
+                {
+                    sum += Convert.ToInt32(dataGridView1.Rows[i].Cells[2].Value);
+                }
+                label5.Text = sum.ToString();
+
             }
             else
             {
@@ -141,8 +166,9 @@ namespace University_Bookstore
             sl = 0;
             //textBox1.Clear();
             textBox2.Clear();
-            textBox3.Clear();
+            textBox5.Clear();
             textBox4.Clear();
+            textBox3.Clear();
             //comboBox1.Text = "Select Category";
             //textBox1.Focus();
         }
@@ -151,15 +177,17 @@ namespace University_Bookstore
             reset();
         }
 
-        
 
+        int add;
         private void button4_Click(object sender, EventArgs e)
         {
+
             try
             {
-                p = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+              
                 int  rowIndex = dataGridView1.CurrentCell.RowIndex;
                 dataGridView1.Rows.RemoveAt(rowIndex);
+
                 
             }
             catch
@@ -235,12 +263,33 @@ namespace University_Bookstore
 
         private void dataGridView4_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            sl = Convert.ToInt32(dataGridView4.SelectedRows[0].Cells[0].Value);
-            textBox2.Text = dataGridView4.SelectedRows[0].Cells[1].Value.ToString();
-            textBox4.Text = dataGridView4.SelectedRows[0].Cells[5].Value.ToString();
+            try
+            {
+                sl = Convert.ToInt32(dataGridView4.SelectedRows[0].Cells[0].Value);
+                textBox2.Text = dataGridView4.SelectedRows[0].Cells[1].Value.ToString();
+                textBox4.Text = dataGridView4.SelectedRows[0].Cells[5].Value.ToString();
+                textBox3.Text = dataGridView4.SelectedRows[0].Cells[4].Value.ToString();
+            }
+           
+            catch
+            {
+                MessageBox.Show("Select properly", "Select?", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                reset();
+            }
         }
         
         int prodid, prodqty, prodprice, tottal, pos = 60;
+
+        private void textBox5_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (!Char.IsDigit(ch) && ch != 8)
+            {
+                e.Handled = true;
+
+
+            }
+        }
 
         string podname;
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -272,10 +321,24 @@ namespace University_Bookstore
 
         private void button3_Click(object sender, EventArgs e)
         {
+            dif = int.Parse(textBox3.Text) - int.Parse(textBox5.Text);
+            if (sl > 0)
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE addBook SET QUANTITY= @quantity where BOOK_SL =@bSl", con);
+                cmd.Parameters.AddWithValue("@quantity", this.dif);
+                cmd.Parameters.AddWithValue("@bSl", this.sl);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+                displayData();
+                reset();
+                
+                
+
+            }
 
 
-
-                string email = textBox1.Text;
+            string email = textBox1.Text;
                 Email(email);
                 printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("pprnm", 285, 600);
                 if (printPreviewDialog1.ShowDialog() == DialogResult.OK)

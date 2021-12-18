@@ -95,7 +95,7 @@ namespace University_Bookstore
         private void Dashboard_Load(object sender, EventArgs e)
         {
             con.Open();
-            string s = "SELECT SUM(SL) FROM addStudent";
+            string s = "SELECT COUNT(SL) FROM addStudent";
             SqlCommand cmd2 = new SqlCommand(s, con);
             SqlDataReader sdr = cmd2.ExecuteReader();
             while (sdr.Read())

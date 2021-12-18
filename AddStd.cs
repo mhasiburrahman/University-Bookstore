@@ -151,6 +151,7 @@ namespace University_Bookstore
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
             displayData();
+            search();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -199,12 +200,20 @@ namespace University_Bookstore
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            sl = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
-            textBox1.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-            textBox2.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-            textBox5.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-            comboBox1.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
-
+            try
+            {
+                sl = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+                textBox1.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                textBox2.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                textBox5.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+                comboBox1.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+            }
+          
+            catch
+            {
+                MessageBox.Show("Select properly", "Select?", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ResetformControls();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -266,5 +275,24 @@ namespace University_Bookstore
         {
 
         }
+        public void search()
+        {
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from addSTUDENT where ID like'" + this.textBox3.Text + "%'";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+            conn.Close();
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            search();
+        }
+        
     }
 }

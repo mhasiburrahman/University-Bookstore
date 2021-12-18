@@ -263,19 +263,20 @@ namespace University_Bookstore
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(821, 111);
+            this.label7.Location = new System.Drawing.Point(417, 302);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(78, 23);
+            this.label7.Size = new System.Drawing.Size(89, 23);
             this.label7.TabIndex = 29;
-            this.label7.Text = "Search";
+            this.label7.Text = "Search :";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // textBox5
             // 
-            this.textBox5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(916, 106);
+            this.textBox5.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(530, 295);
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(234, 34);
+            this.textBox5.Size = new System.Drawing.Size(304, 34);
             this.textBox5.TabIndex = 6;
             this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
@@ -283,7 +284,7 @@ namespace University_Bookstore
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(198, 298);
+            this.dataGridView1.Location = new System.Drawing.Point(195, 335);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -298,7 +299,7 @@ namespace University_Bookstore
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Maroon;
-            this.label16.Location = new System.Drawing.Point(549, 253);
+            this.label16.Location = new System.Drawing.Point(525, 246);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(112, 28);
             this.label16.TabIndex = 26;

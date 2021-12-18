@@ -147,14 +147,29 @@ namespace University_Bookstore
                 dif = int.Parse(textBox3.Text) - int.Parse(textBox5.Text);
                 if (sl > 0)
                 {
-                    SqlCommand cmd = new SqlCommand("UPDATE addBook SET QUANTITY= @quantity where BOOK_SL =@bSl", con);
-                    cmd.Parameters.AddWithValue("@quantity", this.dif);
-                    cmd.Parameters.AddWithValue("@bSl", this.sl);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    displayData();
-                    reset();
+                    if (dif > 0)
+                    {
+                        SqlCommand cmd = new SqlCommand("UPDATE addBook SET QUANTITY= @quantity where BOOK_SL =@bSl", con);
+                        cmd.Parameters.AddWithValue("@quantity", this.dif);
+                        cmd.Parameters.AddWithValue("@bSl", this.sl);
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        displayData();
+                        reset();
+                    }
+                    else if (dif == 0)
+                    {
+                        SqlCommand cmd = new SqlCommand("DELETE from addBook  where BOOK_SL =@bSl", con);
+                        cmd.CommandType = CommandType.Text;
+
+                        cmd.Parameters.AddWithValue("@bSl", this.sl);
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        displayData();
+                        reset();
+                    }
 
 
 
@@ -298,7 +313,7 @@ namespace University_Bookstore
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             e.Graphics.DrawString("UNIVERSITY BOOKSTORE", new Font("Century Gothic", 12, FontStyle.Bold), Brushes.Red, new Point(50));
-            e.Graphics.DrawString("Id product price quantity total", new Font("Century Gothic", 10, FontStyle.Bold), Brushes.Red, new Point(26, 40));
+            e.Graphics.DrawString("PRODUCT  PRICE  QUANTITY ", new Font("Century Gothic", 10, FontStyle.Bold), Brushes.Red, new Point(26, 40));
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 // prodid = Convert.ToInt32(row.Cells["Column1"].Value);
@@ -308,8 +323,8 @@ namespace University_Bookstore
                 // tottal = Convert.ToInt32(row.Cells["Column5"].Value);
                 //e.Graphics.DrawString("" + prodid, new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Blue, new Point(26, pos));
                 e.Graphics.DrawString("" + podname, new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Blue, new Point(45, pos));
-                e.Graphics.DrawString("" + prodprice, new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Blue, new Point(120, pos));
-                e.Graphics.DrawString("" + prodqty, new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Blue, new Point(170, pos));
+                e.Graphics.DrawString("" + prodprice, new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Blue, new Point(110, pos));
+                e.Graphics.DrawString("" + prodqty, new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Blue, new Point(160, pos));
                 //e.Graphics.DrawString("" + tottal, new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Blue, new Point(235, pos));
                 pos += 20;
             }

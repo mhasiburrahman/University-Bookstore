@@ -95,7 +95,7 @@ namespace University_Bookstore
             this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(491, 160);
+            this.button4.Location = new System.Drawing.Point(823, 201);
             this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(85, 41);
@@ -110,7 +110,7 @@ namespace University_Bookstore
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(357, 160);
+            this.button3.Location = new System.Drawing.Point(693, 201);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(94, 41);
@@ -125,7 +125,7 @@ namespace University_Bookstore
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(107, 160);
+            this.button2.Location = new System.Drawing.Point(424, 201);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(85, 41);
@@ -140,7 +140,7 @@ namespace University_Bookstore
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(227, 160);
+            this.button1.Location = new System.Drawing.Point(565, 201);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 41);
@@ -154,7 +154,7 @@ namespace University_Bookstore
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(853, 80);
+            this.label14.Location = new System.Drawing.Point(230, 139);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(141, 23);
             this.label14.TabIndex = 19;
@@ -163,10 +163,10 @@ namespace University_Bookstore
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(400, 80);
+            this.textBox2.Location = new System.Drawing.Point(589, 86);
             this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(155, 30);
+            this.textBox2.Size = new System.Drawing.Size(181, 30);
             this.textBox2.TabIndex = 15;
             // 
             // textBox1
@@ -176,7 +176,7 @@ namespace University_Bookstore
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(155, 36);
+            this.textBox1.Size = new System.Drawing.Size(322, 36);
             this.textBox1.TabIndex = 14;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -185,7 +185,7 @@ namespace University_Bookstore
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(287, 86);
+            this.label12.Location = new System.Drawing.Point(453, 88);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(120, 23);
             this.label12.TabIndex = 13;
@@ -196,7 +196,7 @@ namespace University_Bookstore
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(561, 80);
+            this.label11.Location = new System.Drawing.Point(795, 88);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(122, 23);
             this.label11.TabIndex = 12;
@@ -448,10 +448,10 @@ namespace University_Bookstore
             this.comboBox2.Items.AddRange(new object[] {
             "MALE",
             "FEMALE"});
-            this.comboBox2.Location = new System.Drawing.Point(713, 169);
+            this.comboBox2.Location = new System.Drawing.Point(768, 136);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(191, 31);
+            this.comboBox2.Size = new System.Drawing.Size(195, 31);
             this.comboBox2.TabIndex = 33;
             this.comboBox2.Text = "Select Gender";
             // 
@@ -460,7 +460,7 @@ namespace University_Bookstore
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(611, 172);
+            this.label10.Location = new System.Drawing.Point(650, 139);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(96, 23);
             this.label10.TabIndex = 32;
@@ -471,7 +471,7 @@ namespace University_Bookstore
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(916, 170);
+            this.label7.Location = new System.Drawing.Point(443, 306);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(89, 23);
             this.label7.TabIndex = 31;
@@ -499,21 +499,21 @@ namespace University_Bookstore
             "MEEE",
             "MBA",
             "EMBA"});
-            this.comboBox1.Location = new System.Drawing.Point(991, 78);
+            this.comboBox1.Location = new System.Drawing.Point(390, 136);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(183, 31);
+            this.comboBox1.Size = new System.Drawing.Size(214, 31);
             this.comboBox1.TabIndex = 31;
             this.comboBox1.Text = "Select Department";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // textBox3
             // 
-            this.textBox3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(1009, 164);
+            this.textBox3.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(551, 299);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(154, 34);
+            this.textBox3.Size = new System.Drawing.Size(316, 34);
             this.textBox3.TabIndex = 30;
             this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
@@ -521,7 +521,7 @@ namespace University_Bookstore
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(252, 307);
+            this.dataGridView1.Location = new System.Drawing.Point(253, 345);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
@@ -534,10 +534,10 @@ namespace University_Bookstore
             // textBox5
             // 
             this.textBox5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(677, 80);
+            this.textBox5.Location = new System.Drawing.Point(932, 87);
             this.textBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(155, 30);
+            this.textBox5.Size = new System.Drawing.Size(229, 30);
             this.textBox5.TabIndex = 28;
             // 
             // AddStd

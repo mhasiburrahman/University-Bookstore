@@ -58,6 +58,7 @@
     <Compile Include="loading.Designer.cs">
       <DependentUpon>loading.cs</DependentUpon>
     </Compile>
+    <Compile Include="St.cs" />
     <Compile Include="StdLogin.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -14,9 +14,8 @@ namespace University_Bookstore
    
     public partial class Dashboard : Form
     {
-        //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\KAKON\Desktop\University-Bookstore\AdminDB\AdminloginDB.mdf;Integrated Security=True;Connect Timeout=30");
-       //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\prott\Desktop\University-Bookstore\AdminDB\AdminloginDB.mdf;Integrated Security=True;Connect Timeout=30");
-         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\MAHIM SARKAR\Desktop\University-Bookstore\AdminDB\AdminloginDB.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection con = new SqlConnection(St.connection);
+        
         public Dashboard()
         {
             InitializeComponent();
@@ -96,7 +95,7 @@ namespace University_Bookstore
         private void Dashboard_Load(object sender, EventArgs e)
         {
             con.Open();
-            string s = "SELECT COUNT(SL) FROM addSTUDENT";
+            string s = "SELECT SUM(SL) FROM addStudent";
             SqlCommand cmd2 = new SqlCommand(s, con);
             SqlDataReader sdr = cmd2.ExecuteReader();
             while (sdr.Read())

@@ -8,18 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-
+using System.Text.RegularExpressions;
+using System.Net.Mail;
+using System.Net;
+using System.IO;
 
 namespace University_Bookstore
 {
     public partial class StdForm : Form
     {
+        string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
         public int sl;
         public int p;
-        // SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Mehadi Hasan Shojib\Desktop\University-Bookstore\AdminDB\AdminloginDB.mdf;Integrated Security=True;Connect Timeout=30");
-        // SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\MAHIM SARKAR\Desktop\University-Bookstore\AdminDB\AdminloginDB.mdf;Integrated Security=True;Connect Timeout=30");
-        //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\prott\Desktop\University-Bookstore\AdminDB\AdminloginDB.mdf;Integrated Security=True;Connect Timeout=30");
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\KAKON\Desktop\University-Bookstore\AdminDB\AdminloginDB.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection con = new SqlConnection(St.connection);
         public StdForm()
         {
             InitializeComponent();
@@ -75,12 +76,31 @@ namespace University_Bookstore
 
         private void StdForm_Load(object sender, EventArgs e)
         {
+            textBox1.Enabled = false;
+            /*if (textBox1.Text == "")
+            {
+                button3.Enabled = false;
+            }
+            else
+            {
+                button3.Enabled = true;
+            }*/
 
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
+            //textBox1.Enabled = false;
             displayData();
+            if (textBox1.Text == "")
+            {
+                button3.Enabled = false;
+            }
+            else
+            {
+                button3.Enabled = true;
+
+            }
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -98,10 +118,18 @@ namespace University_Bookstore
         }
         private void button2_Click(object sender, EventArgs e)
         {
+          string email = textBox1.Text;
+        textBox1.Enabled = false;
+
             if (Isvalid())
             {
                 dataGridView1.Rows.Add(textBox2.Text, textBox3.Text, textBox4.Text);
                 MessageBox.Show("Added to cart", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                textBox1.Enabled = true;
+            }
+            else
+            {
+                textBox1.Enabled = false;
             }
             
         }
@@ -123,7 +151,7 @@ namespace University_Bookstore
             reset();
         }
 
-        int prodid, prodqty, prodprice, tottal, pos = 60;
+        
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -142,47 +170,123 @@ namespace University_Bookstore
           
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBox1.Text) == true)
+            {
+                textBox1.Focus();
+                errorProvider1.SetError(this.textBox1, " Email can't be empty ");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+
+            if (Regex.IsMatch(textBox1.Text, pattern) == false)
+            {
+                textBox1.Focus();
+                errorProvider2.SetError(this.textBox1, " Invalid email ");
+            }
+            else
+            {
+                errorProvider2.Clear();
+            }
+        }
+        
+         public static void Email(string email)
+         {
+            
+
+
+            try
+            {
+                 MailMessage message = new MailMessage();
+                 SmtpClient smtp = new SmtpClient();
+                 message.From = new MailAddress("ubookstore21@gmail.com");
+                 message.To.Add(email);
+                 message.Subject = "Book Purchase Confirmation";
+                 message.IsBodyHtml = true; //to make message body as html
+                
+                 
+                 message.Body = "Dear Student, We are pleased to share that the book(s) you purchased has been confirmed. Thank you for ordering from us!"; //Email Body
+                 smtp.Port = 587;
+                 smtp.Host = "smtp.gmail.com"; //for gmail host
+                
+                 smtp.EnableSsl = true;
+                 
+                 smtp.Credentials = new NetworkCredential("ubookstore21@gmail.com", "ProjectC#");
+                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                 smtp.Send(message);
+             
+            }
+             catch (Exception) 
+            {
+                 MessageBox.Show(" Please Insert A Valid Mail ");
+
+             
+            }
+          
+          }
+
         private void dataGridView4_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             sl = Convert.ToInt32(dataGridView4.SelectedRows[0].Cells[0].Value);
             textBox2.Text = dataGridView4.SelectedRows[0].Cells[1].Value.ToString();
             textBox4.Text = dataGridView4.SelectedRows[0].Cells[5].Value.ToString();
         }
+        
+        int prodid, prodqty, prodprice, tottal, pos = 60;
 
         string podname;
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            /*e.Graphics.DrawString("Book Shop", new Font("Century Gothic", 12, FontStyle.Bold), Brushes.Red, new Point(80));
+            e.Graphics.DrawString("UNIVERSITY BOOKSTORE", new Font("Century Gothic", 12, FontStyle.Bold), Brushes.Red, new Point(50));
             e.Graphics.DrawString("Id product price quantity total", new Font("Century Gothic", 10, FontStyle.Bold), Brushes.Red, new Point(26, 40));
-            foreach (DataGridViewRow row in BillDGV.Rows)
+            foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                prodid = Convert.ToInt32(row.Cells["Column1"].Value);
-                prodname = "" + row.Cells["Column 2"].Value;
-                prodprice = Convert.ToInt32(row.Cells["Column3"].Value);
-                prodqty = Convert.ToInt32(row.Cells["Column4"].Value);
-                tottal = Convert.ToInt32(row.Cells["Column5"].Value);
-                e.Graphics.DrawString("" + prodid, new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Blue, new Point(26, pos));
-                e.Graphics.DrawString("" + prodname, new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Blue, new Point(45, pos));
+                // prodid = Convert.ToInt32(row.Cells["Column1"].Value);
+                podname = "" + row.Cells["BOOK-NAME"].Value;
+                prodprice = Convert.ToInt32(row.Cells["PRICE"].Value);
+                prodqty = Convert.ToInt32(row.Cells["QUANTITY"].Value);
+                // tottal = Convert.ToInt32(row.Cells["Column5"].Value);
+                //e.Graphics.DrawString("" + prodid, new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Blue, new Point(26, pos));
+                e.Graphics.DrawString("" + podname, new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Blue, new Point(45, pos));
                 e.Graphics.DrawString("" + prodprice, new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Blue, new Point(120, pos));
                 e.Graphics.DrawString("" + prodqty, new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Blue, new Point(170, pos));
                 e.Graphics.DrawString("" + tottal, new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Blue, new Point(235, pos));
                 pos += 20;
             }
-            e.Graphics.DrawString("Grand Total : " + Grdtotal + " Đồng", new Font("Century Gothic", 12, FontStyle.Bold), Brushes.Crimson, new Point(26, pos + 50));
-            e.Graphics.DrawString("***********Book Store***********", new Font("Century Gothic", 10, FontStyle.Bold), Brushes.Crimson, new Point(40, pos + 85));
-            BillDGV.Rows.Clear();
-            BillDGV.Refresh();
+            e.Graphics.DrawString("Grand Total : " + " ", new Font("Century Gothic", 12, FontStyle.Bold), Brushes.Crimson, new Point(26, pos + 50));
+            e.Graphics.DrawString("***********THANK YOU***********", new Font("Century Gothic", 10, FontStyle.Bold), Brushes.Crimson, new Point(40, pos + 85));
+            dataGridView1.Rows.Clear();
+            dataGridView1.Refresh();
             pos = 100;
-            Grdtotal = 0;*/
+            //Grdtotal = 0;
         }
+
 
         private void button3_Click(object sender, EventArgs e)
         {
-            printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("pprnm", 285, 600);
-            if (printPreviewDialog1.ShowDialog() == DialogResult.OK)
-            {
-                printDocument1.Print();
-            }
+
+
+
+                string email = textBox1.Text;
+                Email(email);
+                printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("pprnm", 285, 600);
+                if (printPreviewDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    
+
+                    printDocument1.Print();
+                }
+
+            
+            
         }
     }
 }

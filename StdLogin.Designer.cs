@@ -32,6 +32,7 @@ namespace University_Bookstore
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StdLogin));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.showpassBTN = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -45,14 +46,13 @@ namespace University_Bookstore
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.showpassBTN = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.showpassBTN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.showpassBTN)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -74,6 +74,18 @@ namespace University_Bookstore
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(516, 320);
             this.panel1.TabIndex = 0;
+            // 
+            // showpassBTN
+            // 
+            this.showpassBTN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.showpassBTN.Image = global::University_Bookstore.Properties.Resources.hidden;
+            this.showpassBTN.Location = new System.Drawing.Point(417, 160);
+            this.showpassBTN.Name = "showpassBTN";
+            this.showpassBTN.Size = new System.Drawing.Size(27, 27);
+            this.showpassBTN.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.showpassBTN.TabIndex = 10;
+            this.showpassBTN.TabStop = false;
+            this.showpassBTN.Click += new System.EventHandler(this.showpassBTN_Click);
             // 
             // pictureBox2
             // 
@@ -211,17 +223,6 @@ namespace University_Bookstore
             // 
             this.errorProvider3.ContainerControl = this;
             // 
-            // showpassBTN
-            // 
-            this.showpassBTN.Image = global::University_Bookstore.Properties.Resources.hidden;
-            this.showpassBTN.Location = new System.Drawing.Point(417, 160);
-            this.showpassBTN.Name = "showpassBTN";
-            this.showpassBTN.Size = new System.Drawing.Size(27, 27);
-            this.showpassBTN.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.showpassBTN.TabIndex = 10;
-            this.showpassBTN.TabStop = false;
-            this.showpassBTN.Click += new System.EventHandler(this.showpassBTN_Click);
-            // 
             // StdLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -239,12 +240,12 @@ namespace University_Bookstore
             this.Load += new System.EventHandler(this.StdLogin_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.showpassBTN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.showpassBTN)).EndInit();
             this.ResumeLayout(false);
 
         }

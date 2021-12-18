@@ -85,28 +85,36 @@ namespace University_Bookstore
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (IsValid())
-            {
+           
+          if (Isvalid())
+           {
+               conn.Open();
+               SqlDataAdapter da = new SqlDataAdapter("Select ID from addSTUDENT where ID ='" + textBox5.Text + "'", conn);
+               DataTable dt = new DataTable();
+               da.Fill(dt);
+               conn.Close();
+               if (dt.Rows.Count >= 1)
+               {
+                   MessageBox.Show("Same Student ID Exists");
 
-                SqlCommand cmd = new SqlCommand("INSERT INTO addSTUDENT VALUES (@username, @pass, @id, @department)", conn);
-                cmd.CommandType = CommandType.Text;
-              
-                cmd.Parameters.AddWithValue("@username", textBox1.Text);
-                cmd.Parameters.AddWithValue("@pass", textBox2.Text);
-                cmd.Parameters.AddWithValue("@id", textBox5.Text);
-                cmd.Parameters.AddWithValue("@department", comboBox1.Text);
 
-                conn.Open();
-                cmd.ExecuteNonQuery();
-                conn.Close();
-                textBox1.Text = "";
-                textBox2.Text = "";
-                textBox5.Text = "";
-                comboBox1.Text = "";
-                MessageBox.Show("Insertion Successful", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                displayData();
-                ResetformControls();
-            }
+               }
+               else
+               {
+                   conn.Open();
+                   SqlCommand cmd = conn.CreateCommand();
+                   cmd.CommandType = CommandType.Text;
+                   cmd.CommandText = "INSERT INTO addSTUDENT VALUES('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox5.Text + "','" + comboBox1.Text + "','" + comboBox2.Text + "')";
+                   cmd.ExecuteNonQuery();
+                   conn.Close();
+                   displayData();
+                   ResetformControls();
+                   MessageBox.Show("Insertion Successful", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               }
+
+           }
+
+           
         }
 
         private bool IsValid()
@@ -129,6 +137,11 @@ namespace University_Bookstore
             if (comboBox1.Text == string.Empty)
             {
                 MessageBox.Show("Department is required", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (comboBox2.Text == string.Empty)
+            {
+                MessageBox.Show("Gender is required", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;
@@ -164,36 +177,42 @@ namespace University_Bookstore
             sl = 0;
             textBox1.Clear();
             textBox2.Clear();
+            textBox3.Clear();
             textBox5.Clear();
-            comboBox1.Text = "Select Category";
+            comboBox1.Text = "Select Department";
+            comboBox2.Text = "Select Gender";
 
             textBox1.Focus();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (sl > 0)
+            if (Isvalid())
             {
-                SqlCommand cmd = new SqlCommand("DELETE FROM addSTUDENT Where SL = @sl", conn);
-                cmd.CommandType = CommandType.Text;
-               
-                
-                cmd.Parameters.AddWithValue("@sl", this.sl);
+                if (sl > 0)
+                {
+                    SqlCommand cmd = new SqlCommand("DELETE FROM addSTUDENT Where SL = @sl", conn);
+                    cmd.CommandType = CommandType.Text;
 
-                conn.Open();
-                cmd.ExecuteNonQuery();
-                conn.Close();
-                textBox1.Text = "";
-                textBox2.Text = "";
-                textBox5.Text = "";
-                comboBox1.Text = "";
-                MessageBox.Show("Student is deleted from the system", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                displayData();
-                ResetformControls();
-            }
-            else
-            {
-                MessageBox.Show("Please select a student to delete", "Select?", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    cmd.Parameters.AddWithValue("@sl", this.sl);
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    textBox1.Text = "";
+                    textBox2.Text = "";
+                    textBox5.Text = "";
+                    comboBox1.Text = "";
+                    comboBox2.Text = "";
+                    MessageBox.Show("Student is deleted from the system", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    displayData();
+                    ResetformControls();
+                }
+                else
+                {
+                    MessageBox.Show("Please select a student to delete", "Select?", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
        
         }
@@ -207,6 +226,7 @@ namespace University_Bookstore
                 textBox2.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
                 textBox5.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
                 comboBox1.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+                comboBox2.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
             }
           
             catch
@@ -218,38 +238,44 @@ namespace University_Bookstore
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(sl > 0)
+           
+            if (Isvalid())
             {
-                SqlCommand cmd = new SqlCommand("UPDATE addSTUDENT SET USERNAME = @username, PASS = @pass, ID = @id, DEPARTMENT = @department Where SL = @sl", conn);
-                cmd.CommandType = CommandType.Text;
-             
-                cmd.Parameters.AddWithValue("@username", textBox1.Text);
-                cmd.Parameters.AddWithValue("@pass", textBox2.Text);
-                cmd.Parameters.AddWithValue("@id", textBox5.Text);
-                cmd.Parameters.AddWithValue("@department", comboBox1.Text);
-                cmd.Parameters.AddWithValue("@sl", this.sl);
+                if (sl > 0)
+                {
+                    SqlCommand cmd = new SqlCommand("UPDATE addSTUDENT SET USERNAME = @username, PASS = @pass, ID = @id, DEPARTMENT = @department, GENDER = @gender Where SL = @sl", conn);
+                    cmd.CommandType = CommandType.Text;
 
-                conn.Open();
-                cmd.ExecuteNonQuery();
-                conn.Close();
-                textBox1.Text = "";
-                textBox2.Text = "";
-                textBox5.Text = "";
-                comboBox1.Text = "";
-                MessageBox.Show("Updation Successful", "updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                displayData();
-                ResetformControls();
-            }
-            else
-            {
-                MessageBox.Show("Please select a student to update","Select?", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                 
+                    cmd.Parameters.AddWithValue("@username", textBox1.Text);
+                    cmd.Parameters.AddWithValue("@pass", textBox2.Text);
+                    cmd.Parameters.AddWithValue("@id", textBox5.Text);
+                    cmd.Parameters.AddWithValue("@department", comboBox1.Text);
+                    cmd.Parameters.AddWithValue("@gender", comboBox2.Text);
+                    cmd.Parameters.AddWithValue("@sl", this.sl);
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    textBox1.Text = "";
+                    textBox2.Text = "";
+                    textBox5.Text = "";
+                    comboBox1.Text = "";
+                    comboBox2.Text = "";
+                    MessageBox.Show("Updation Successful", "updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    displayData();
+                    ResetformControls();
+                }
+                else
+                {
+                    MessageBox.Show("Please select a student to update", "Select?", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
             }
         }
 
         private bool Isvalid()
         {
-            if (textBox1.Text == String.Empty || textBox2.Text == String.Empty || comboBox1.Text == "Select Category" || textBox5.Text == String.Empty)
+            if (textBox1.Text == String.Empty || textBox2.Text == String.Empty  || textBox5.Text == String.Empty || comboBox1.Text == "Select Department" || comboBox2.Text == "Select Gender")
             {
                 MessageBox.Show("Fill all the information", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -266,10 +292,6 @@ namespace University_Bookstore
 
         }
 
-       /* private void comboBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }*/
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {

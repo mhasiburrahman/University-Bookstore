@@ -83,7 +83,7 @@ namespace University_Bookstore
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Maroon;
-            this.label16.Location = new System.Drawing.Point(536, 268);
+            this.label16.Location = new System.Drawing.Point(560, 268);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(147, 28);
             this.label16.TabIndex = 26;

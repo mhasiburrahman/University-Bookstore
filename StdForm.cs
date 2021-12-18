@@ -144,6 +144,21 @@ namespace University_Bookstore
                
                 MessageBox.Show("Added to cart", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 textBox1.Enabled = true;
+                dif = int.Parse(textBox3.Text) - int.Parse(textBox5.Text);
+                if (sl > 0)
+                {
+                    SqlCommand cmd = new SqlCommand("UPDATE addBook SET QUANTITY= @quantity where BOOK_SL =@bSl", con);
+                    cmd.Parameters.AddWithValue("@quantity", this.dif);
+                    cmd.Parameters.AddWithValue("@bSl", this.sl);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    displayData();
+                    reset();
+
+
+
+                }
                 int sum = 0;
                 for (int i = 0; i < dataGridView1.Rows.Count; ++i)
                 {
@@ -178,25 +193,7 @@ namespace University_Bookstore
         }
 
 
-        int add;
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-            try
-            {
-              
-                int  rowIndex = dataGridView1.CurrentCell.RowIndex;
-                dataGridView1.Rows.RemoveAt(rowIndex);
-
-                
-            }
-            catch
-            {
-                MessageBox.Show("Cannot clear empty ", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-           
-          
-        }
+     
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -228,36 +225,42 @@ namespace University_Bookstore
         
          public static void Email(string email)
          {
-            
-
-
             try
             {
-                 MailMessage message = new MailMessage();
-                 SmtpClient smtp = new SmtpClient();
-                 message.From = new MailAddress("ubookstore21@gmail.com");
-                 message.To.Add(email);
-                 message.Subject = "Book Purchase Confirmation";
-                 message.IsBodyHtml = true; //to make message body as html
-                
-                 
-                 message.Body = "Dear Student, We are pleased to share that the book(s) you purchased has been confirmed. Thank you for ordering from us!"; //Email Body
-                 smtp.Port = 587;
-                 smtp.Host = "smtp.gmail.com"; //for gmail host
-                
-                 smtp.EnableSsl = true;
-                 
-                 smtp.Credentials = new NetworkCredential("ubookstore21@gmail.com", "ProjectC#");
-                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-                 smtp.Send(message);
-             
-            }
-             catch (Exception) 
-            {
-                 MessageBox.Show(" Please Insert A Valid Mail ");
 
-             
+                MailMessage message = new MailMessage();
+
+                message.From = new MailAddress("ubookstore21@gmail.com");
+                message.To.Add(email);
+                message.Subject = "Book Purchase Confirmation";
+                //message.IsBodyHtml = true; //to make message body as html
+
+
+                message.Body = "Dear Student, We are pleased to share that the book(s) you purchased has been confirmed. Thank you for ordering from us!"; //Email Body
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com"; //for gmail host
+                System.Net.NetworkCredential xyz = new NetworkCredential();
+                xyz.UserName = "ubookstore21@gmail.com";
+                xyz.Password = "ProjectC#";
+                //smtp.Credentials = new NetworkCredential("ubookstore21@gmail.com", "ProjectC#");
+                //smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.Credentials = xyz;
+                smtp.EnableSsl = true;
+                smtp.Port = 587;
+                smtp.Send(message);
+                MessageBox.Show("Please check your email");
+                
+
             }
+            catch (Exception)
+            {
+                MessageBox.Show("invalid email");
+            }
+            
+                
+
+            
+            
           
           }
 
@@ -278,7 +281,7 @@ namespace University_Bookstore
             }
         }
         
-        int prodid, prodqty, prodprice, tottal, pos = 60;
+        int  prodqty, prodprice,  pos = 60;
 
         private void textBox5_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -307,10 +310,10 @@ namespace University_Bookstore
                 e.Graphics.DrawString("" + podname, new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Blue, new Point(45, pos));
                 e.Graphics.DrawString("" + prodprice, new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Blue, new Point(120, pos));
                 e.Graphics.DrawString("" + prodqty, new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Blue, new Point(170, pos));
-                e.Graphics.DrawString("" + tottal, new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Blue, new Point(235, pos));
+                //e.Graphics.DrawString("" + tottal, new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Blue, new Point(235, pos));
                 pos += 20;
             }
-            e.Graphics.DrawString("Grand Total : " + " ", new Font("Century Gothic", 12, FontStyle.Bold), Brushes.Crimson, new Point(26, pos + 50));
+            e.Graphics.DrawString("Grand Total : " + label5.Text + " " + " Tk", new Font("Century Gothic", 12, FontStyle.Bold), Brushes.Crimson, new Point(26, pos + 50));
             e.Graphics.DrawString("***********THANK YOU***********", new Font("Century Gothic", 10, FontStyle.Bold), Brushes.Crimson, new Point(40, pos + 85));
             dataGridView1.Rows.Clear();
             dataGridView1.Refresh();
@@ -321,24 +324,10 @@ namespace University_Bookstore
 
         private void button3_Click(object sender, EventArgs e)
         {
-            dif = int.Parse(textBox3.Text) - int.Parse(textBox5.Text);
-            if (sl > 0)
-            {
-                SqlCommand cmd = new SqlCommand("UPDATE addBook SET QUANTITY= @quantity where BOOK_SL =@bSl", con);
-                cmd.Parameters.AddWithValue("@quantity", this.dif);
-                cmd.Parameters.AddWithValue("@bSl", this.sl);
-                con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
-                displayData();
-                reset();
-                
-                
-
-            }
+            
 
 
-            string email = textBox1.Text;
+                string email = textBox1.Text;
                 Email(email);
                 printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("pprnm", 285, 600);
                 if (printPreviewDialog1.ShowDialog() == DialogResult.OK)

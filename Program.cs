@@ -17,8 +17,8 @@ namespace University_Bookstore
 
            // Application.Run(new StdForm());
            // Application.Run(new StdLogin());
-            Application.Run(new AddStd());
-            //Application.Run(new Loading());
+           // Application.Run(new AddStd());
+            Application.Run(new Loading());
         }
     }
 }

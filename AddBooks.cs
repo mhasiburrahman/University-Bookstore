@@ -127,10 +127,13 @@ namespace University_Bookstore
             dataGridView1.DataSource = dt;
             con.Close();
         }
+        //int i;
        private bool Isvalid()
         {
+            
             if (textBox1.Text == String.Empty || textBox2.Text == String.Empty || comboBox1.Text == "Select Category" || textBox3.Text == String.Empty || textBox4.Text == String.Empty)
             {
+               
                 MessageBox.Show("Fill all the information", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
@@ -305,6 +308,16 @@ namespace University_Bookstore
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
             search();
+        }
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void textBox2_Leave(object sender, EventArgs e)
+        {
+          
         }
     }
 }
